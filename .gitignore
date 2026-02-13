@@ -1,0 +1,10 @@
+# runtime files (should only exist in preview, not in git)
+__runtime_loader.js
+__devtools.tsx
+__jsx-dev-runtime.ts
+
+# Common ignores
+node_modules/
+.next/
+.env*.local
+.DS_Store

@@ -1,0 +1,735 @@
+{
+  "clientName": "Smart Waste Management API",
+  "clientVersion": "1.0.0",
+  "dateExportDate": "2025-02-05",
+  "dateExportedDate": "2025-02-05T10:00:00.000Z",
+  "version": 11,
+  "folders": [
+    {
+      "containerId": "",
+      "sortNum": 10000,
+      "name": "Authentication",
+      "_id": "auth_folder"
+    },
+    {
+      "containerId": "",
+      "sortNum": 20000,
+      "name": "Citizen APIs",
+      "_id": "citizen_folder"
+    },
+    {
+      "containerId": "",
+      "sortNum": 30000,
+      "name": "Collector APIs",
+      "_id": "collector_folder"
+    },
+    {
+      "containerId": "",
+      "sortNum": 40000,
+      "name": "Admin APIs",
+      "_id": "admin_folder"
+    },
+    {
+      "containerId": "",
+      "sortNum": 50000,
+      "name": "IoT APIs",
+      "_id": "iot_folder"
+    }
+  ],
+  "requests": [
+    {
+      "containerId": "auth_folder",
+      "sortNum": 10100,
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "uuid": "auth_reg_header_1"
+        }
+      ],
+      "colId": "null",
+      "name": "Register Citizen",
+      "url": "{{base_url}}/api/auth/register",
+      "method": "POST",
+      "data": {
+        "type": "json",
+        "raw": "{\"firstName\":\"John\",\"lastName\":\"Doe\",\"email\":\"citizen@example.com\",\"password\":\"SecurePass123\",\"role\":\"citizen\",\"phoneNumber\":\"+91-9876543210\",\"address\":\"123 Green Street\",\"city\":\"Mumbai\",\"state\":\"Maharashtra\",\"pincode\":\"400001\"}"
+      },
+      "_id": "auth_reg_citizen"
+    },
+    {
+      "containerId": "auth_folder",
+      "sortNum": 10200,
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "uuid": "auth_reg_header_2"
+        }
+      ],
+      "colId": "null",
+      "name": "Register Collector",
+      "url": "{{base_url}}/api/auth/register",
+      "method": "POST",
+      "data": {
+        "type": "json",
+        "raw": "{\"firstName\":\"Ram\",\"lastName\":\"Kumar\",\"email\":\"collector@example.com\",\"password\":\"SecurePass123\",\"role\":\"collector\",\"phoneNumber\":\"+91-8765432109\",\"address\":\"456 Waste Hub\",\"city\":\"Mumbai\",\"state\":\"Maharashtra\",\"pincode\":\"400002\",\"collectorType\":\"individual\",\"collectorLicense\":\"LIC123456\",\"collectorVehicleType\":\"Auto Rickshaw\"}"
+      },
+      "_id": "auth_reg_collector"
+    },
+    {
+      "containerId": "auth_folder",
+      "sortNum": 10300,
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "uuid": "auth_reg_header_3"
+        }
+      ],
+      "colId": "null",
+      "name": "Register Admin",
+      "url": "{{base_url}}/api/auth/register",
+      "method": "POST",
+      "data": {
+        "type": "json",
+        "raw": "{\"firstName\":\"Admin\",\"lastName\":\"User\",\"email\":\"admin@example.com\",\"password\":\"AdminPass123\",\"role\":\"admin\",\"phoneNumber\":\"+91-7654321098\",\"address\":\"Admin Office\",\"city\":\"Mumbai\",\"state\":\"Maharashtra\",\"pincode\":\"400003\"}"
+      },
+      "_id": "auth_reg_admin"
+    },
+    {
+      "containerId": "auth_folder",
+      "sortNum": 10400,
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "uuid": "auth_login_header_1"
+        }
+      ],
+      "colId": "null",
+      "name": "Login Citizen",
+      "url": "{{base_url}}/api/auth/login",
+      "method": "POST",
+      "data": {
+        "type": "json",
+        "raw": "{\"email\":\"citizen@example.com\",\"password\":\"SecurePass123\"}"
+      },
+      "_id": "auth_login_citizen"
+    },
+    {
+      "containerId": "auth_folder",
+      "sortNum": 10500,
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "uuid": "auth_login_header_2"
+        }
+      ],
+      "colId": "null",
+      "name": "Login Collector",
+      "url": "{{base_url}}/api/auth/login",
+      "method": "POST",
+      "data": {
+        "type": "json",
+        "raw": "{\"email\":\"collector@example.com\",\"password\":\"SecurePass123\"}"
+      },
+      "_id": "auth_login_collector"
+    },
+    {
+      "containerId": "auth_folder",
+      "sortNum": 10600,
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "uuid": "auth_login_header_3"
+        }
+      ],
+      "colId": "null",
+      "name": "Login Admin",
+      "url": "{{base_url}}/api/auth/login",
+      "method": "POST",
+      "data": {
+        "type": "json",
+        "raw": "{\"email\":\"admin@example.com\",\"password\":\"AdminPass123\"}"
+      },
+      "_id": "auth_login_admin"
+    },
+    {
+      "containerId": "auth_folder",
+      "sortNum": 10700,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{citizen_token}}",
+          "uuid": "auth_profile_header"
+        }
+      ],
+      "colId": "null",
+      "name": "Get Profile",
+      "url": "{{base_url}}/api/auth/profile",
+      "method": "GET",
+      "_id": "auth_get_profile"
+    },
+    {
+      "containerId": "citizen_folder",
+      "sortNum": 20100,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{citizen_token}}",
+          "uuid": "citizen_create_header_1"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "uuid": "citizen_create_header_2"
+        }
+      ],
+      "colId": "null",
+      "name": "Create Pickup Request",
+      "url": "{{base_url}}/api/citizen/pickup-request",
+      "method": "POST",
+      "data": {
+        "type": "json",
+        "raw": "{\"wasteType\":\"recyclable\",\"wasteQuantity\":15.5,\"description\":\"Old plastic bottles and cardboard\",\"pickupAddress\":\"123 Green Street, Mumbai\",\"pickupLatitude\":19.0760,\"pickupLongitude\":72.8777,\"scheduledDate\":\"2025-02-10T10:00:00Z\",\"preferredTimeSlot\":\"8AM-11AM\",\"priority\":\"high\"}"
+      },
+      "_id": "citizen_create_request"
+    },
+    {
+      "containerId": "citizen_folder",
+      "sortNum": 20200,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{citizen_token}}",
+          "uuid": "citizen_get_header"
+        }
+      ],
+      "colId": "null",
+      "name": "Get Pickup Request",
+      "url": "{{base_url}}/api/citizen/pickup-request/{{pickup_request_id}}",
+      "method": "GET",
+      "_id": "citizen_get_request"
+    },
+    {
+      "containerId": "citizen_folder",
+      "sortNum": 20300,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{citizen_token}}",
+          "uuid": "citizen_list_header"
+        }
+      ],
+      "colId": "null",
+      "name": "List Pickup Requests",
+      "url": "{{base_url}}/api/citizen/pickup-requests?page=1&limit=10&status=pending",
+      "method": "GET",
+      "_id": "citizen_list_requests"
+    },
+    {
+      "containerId": "citizen_folder",
+      "sortNum": 20400,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{citizen_token}}",
+          "uuid": "citizen_stats_header"
+        }
+      ],
+      "colId": "null",
+      "name": "Get Statistics",
+      "url": "{{base_url}}/api/citizen/statistics",
+      "method": "GET",
+      "_id": "citizen_get_stats"
+    },
+    {
+      "containerId": "citizen_folder",
+      "sortNum": 20500,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{citizen_token}}",
+          "uuid": "citizen_invoice_header_1"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "uuid": "citizen_invoice_header_2"
+        }
+      ],
+      "colId": "null",
+      "name": "Generate Invoice",
+      "url": "{{base_url}}/api/citizen/invoice",
+      "method": "POST",
+      "data": {
+        "type": "json",
+        "raw": "{\"pickupRequestId\":\"{{pickup_request_id}}\"}"
+      },
+      "_id": "citizen_gen_invoice"
+    },
+    {
+      "containerId": "citizen_folder",
+      "sortNum": 20600,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{citizen_token}}",
+          "uuid": "citizen_pay_init_header_1"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "uuid": "citizen_pay_init_header_2"
+        }
+      ],
+      "colId": "null",
+      "name": "Initiate Payment",
+      "url": "{{base_url}}/api/citizen/payment/initiate",
+      "method": "POST",
+      "data": {
+        "type": "json",
+        "raw": "{\"paymentId\":\"{{payment_id}}\",\"paymentMethod\":\"upi\",\"transactionReference\":\"UPI123456789\"}"
+      },
+      "_id": "citizen_init_payment"
+    },
+    {
+      "containerId": "citizen_folder",
+      "sortNum": 20700,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{citizen_token}}",
+          "uuid": "citizen_pay_complete_header_1"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "uuid": "citizen_pay_complete_header_2"
+        }
+      ],
+      "colId": "null",
+      "name": "Complete Payment",
+      "url": "{{base_url}}/api/citizen/payment/complete",
+      "method": "POST",
+      "data": {
+        "type": "json",
+        "raw": "{\"paymentId\":\"{{payment_id}}\",\"transactionId\":\"TXN-1707130900000\"}"
+      },
+      "_id": "citizen_complete_payment"
+    },
+    {
+      "containerId": "citizen_folder",
+      "sortNum": 20800,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{citizen_token}}",
+          "uuid": "citizen_list_payments_header"
+        }
+      ],
+      "colId": "null",
+      "name": "List Payments",
+      "url": "{{base_url}}/api/citizen/payments?page=1&limit=10",
+      "method": "GET",
+      "_id": "citizen_list_payments"
+    },
+    {
+      "containerId": "collector_folder",
+      "sortNum": 30100,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{collector_token}}",
+          "uuid": "collector_available_header"
+        }
+      ],
+      "colId": "null",
+      "name": "Get Available Requests",
+      "url": "{{base_url}}/api/collector/available-requests",
+      "method": "GET",
+      "_id": "collector_available_requests"
+    },
+    {
+      "containerId": "collector_folder",
+      "sortNum": 30200,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{collector_token}}",
+          "uuid": "collector_assigned_header"
+        }
+      ],
+      "colId": "null",
+      "name": "Get Assigned Requests",
+      "url": "{{base_url}}/api/collector/assigned-requests",
+      "method": "GET",
+      "_id": "collector_assigned_requests"
+    },
+    {
+      "containerId": "collector_folder",
+      "sortNum": 30300,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{collector_token}}",
+          "uuid": "collector_get_req_header"
+        }
+      ],
+      "colId": "null",
+      "name": "Get Request Details",
+      "url": "{{base_url}}/api/collector/request/{{pickup_request_id}}",
+      "method": "GET",
+      "_id": "collector_get_request"
+    },
+    {
+      "containerId": "collector_folder",
+      "sortNum": 30400,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{collector_token}}",
+          "uuid": "collector_accept_header_1"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "uuid": "collector_accept_header_2"
+        }
+      ],
+      "colId": "null",
+      "name": "Accept Request",
+      "url": "{{base_url}}/api/collector/request/{{pickup_request_id}}/accept",
+      "method": "PUT",
+      "data": {
+        "type": "json",
+        "raw": "{\"notes\":\"On the way to pick up waste\"}"
+      },
+      "_id": "collector_accept_request"
+    },
+    {
+      "containerId": "collector_folder",
+      "sortNum": 30500,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{collector_token}}",
+          "uuid": "collector_reject_header_1"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "uuid": "collector_reject_header_2"
+        }
+      ],
+      "colId": "null",
+      "name": "Reject Request",
+      "url": "{{base_url}}/api/collector/request/{{pickup_request_id}}/reject",
+      "method": "PUT",
+      "data": {
+        "type": "json",
+        "raw": "{\"notes\":\"Cannot fulfill this request\"}"
+      },
+      "_id": "collector_reject_request"
+    },
+    {
+      "containerId": "collector_folder",
+      "sortNum": 30600,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{collector_token}}",
+          "uuid": "collector_transit_header_1"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "uuid": "collector_transit_header_2"
+        }
+      ],
+      "colId": "null",
+      "name": "Mark In-Transit",
+      "url": "{{base_url}}/api/collector/request/{{pickup_request_id}}/in-transit",
+      "method": "PUT",
+      "data": {
+        "type": "json",
+        "raw": "{\"notes\":\"Collector is on the way\"}"
+      },
+      "_id": "collector_in_transit"
+    },
+    {
+      "containerId": "collector_folder",
+      "sortNum": 30700,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{collector_token}}",
+          "uuid": "collector_collected_header_1"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "uuid": "collector_collected_header_2"
+        }
+      ],
+      "colId": "null",
+      "name": "Mark as Collected",
+      "url": "{{base_url}}/api/collector/request/{{pickup_request_id}}/collected",
+      "method": "PUT",
+      "data": {
+        "type": "json",
+        "raw": "{\"notes\":\"Waste successfully collected - 15.5 kg\",\"imageProof\":[\"https://example.com/image1.jpg\"]}"
+      },
+      "_id": "collector_collected"
+    },
+    {
+      "containerId": "admin_folder",
+      "sortNum": 40100,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{admin_token}}",
+          "uuid": "admin_list_header"
+        }
+      ],
+      "colId": "null",
+      "name": "List All Requests",
+      "url": "{{base_url}}/api/admin/pickup-requests?page=1&limit=10",
+      "method": "GET",
+      "_id": "admin_list_all_requests"
+    },
+    {
+      "containerId": "admin_folder",
+      "sortNum": 40200,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{admin_token}}",
+          "uuid": "admin_get_header"
+        }
+      ],
+      "colId": "null",
+      "name": "Get Request Details",
+      "url": "{{base_url}}/api/admin/pickup-request/{{pickup_request_id}}",
+      "method": "GET",
+      "_id": "admin_get_request"
+    },
+    {
+      "containerId": "admin_folder",
+      "sortNum": 40300,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{admin_token}}",
+          "uuid": "admin_assign_header_1"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "uuid": "admin_assign_header_2"
+        }
+      ],
+      "colId": "null",
+      "name": "Assign Collector",
+      "url": "{{base_url}}/api/admin/pickup-request/{{pickup_request_id}}/assign-collector",
+      "method": "PUT",
+      "data": {
+        "type": "json",
+        "raw": "{\"collectorId\":\"{{collector_id}}\"}"
+      },
+      "_id": "admin_assign_collector"
+    },
+    {
+      "containerId": "admin_folder",
+      "sortNum": 40400,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{admin_token}}",
+          "uuid": "admin_verify_header_1"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "uuid": "admin_verify_header_2"
+        }
+      ],
+      "colId": "null",
+      "name": "Verify Collection",
+      "url": "{{base_url}}/api/admin/pickup-request/{{pickup_request_id}}/verify",
+      "method": "PUT",
+      "data": {
+        "type": "json",
+        "raw": "{\"notes\":\"Verification complete - Waste quantity and type confirmed\"}"
+      },
+      "_id": "admin_verify_collection"
+    },
+    {
+      "containerId": "admin_folder",
+      "sortNum": 40500,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{admin_token}}",
+          "uuid": "admin_list_payments_header"
+        }
+      ],
+      "colId": "null",
+      "name": "List All Payments",
+      "url": "{{base_url}}/api/admin/payments?page=1&limit=10",
+      "method": "GET",
+      "_id": "admin_list_payments"
+    },
+    {
+      "containerId": "admin_folder",
+      "sortNum": 40600,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{admin_token}}",
+          "uuid": "admin_refund_header_1"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "uuid": "admin_refund_header_2"
+        }
+      ],
+      "colId": "null",
+      "name": "Refund Payment",
+      "url": "{{base_url}}/api/admin/payment/refund",
+      "method": "POST",
+      "data": {
+        "type": "json",
+        "raw": "{\"paymentId\":\"{{payment_id}}\",\"refundReason\":\"User requested cancellation\"}"
+      },
+      "_id": "admin_refund_payment"
+    },
+    {
+      "containerId": "admin_folder",
+      "sortNum": 40700,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{admin_token}}",
+          "uuid": "admin_stats_header"
+        }
+      ],
+      "colId": "null",
+      "name": "Dashboard Statistics",
+      "url": "{{base_url}}/api/admin/dashboard-stats",
+      "method": "GET",
+      "_id": "admin_dashboard_stats"
+    },
+    {
+      "containerId": "iot_folder",
+      "sortNum": 50100,
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "uuid": "iot_sensor_header_1"
+        },
+        {
+          "key": "x-api-key",
+          "value": "your_iot_api_key_here",
+          "uuid": "iot_sensor_header_2"
+        }
+      ],
+      "colId": "null",
+      "name": "Send Sensor Data",
+      "url": "{{base_url}}/api/iot/sensor-data",
+      "method": "POST",
+      "data": {
+        "type": "json",
+        "raw": "{\"binId\":\"BIN-001\",\"location\":{\"latitude\":19.0760,\"longitude\":72.8777,\"address\":\"Mumbai\"},\"sensorReadings\":{\"fillLevel\":75,\"weight\":45.5,\"temperature\":28,\"humidity\":65,\"methaneLevel\":5,\"odorLevel\":3},\"wasteType\":\"mixed\",\"status\":\"high\"}"
+      },
+      "_id": "iot_send_sensor"
+    },
+    {
+      "containerId": "iot_folder",
+      "sortNum": 50200,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{admin_token}}",
+          "uuid": "iot_get_data_header"
+        }
+      ],
+      "colId": "null",
+      "name": "Get Sensor Data",
+      "url": "{{base_url}}/api/iot/sensor-data/BIN-001?limit=50",
+      "method": "GET",
+      "_id": "iot_get_sensor_data"
+    },
+    {
+      "containerId": "iot_folder",
+      "sortNum": 50300,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{admin_token}}",
+          "uuid": "iot_bins_status_header"
+        }
+      ],
+      "colId": "null",
+      "name": "Get All Bins Status",
+      "url": "{{base_url}}/api/iot/bins/status",
+      "method": "GET",
+      "_id": "iot_bins_status"
+    },
+    {
+      "containerId": "iot_folder",
+      "sortNum": 50400,
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{admin_token}}",
+          "uuid": "iot_alerts_header"
+        }
+      ],
+      "colId": "null",
+      "name": "Get Active Alerts",
+      "url": "{{base_url}}/api/iot/alerts",
+      "method": "GET",
+      "_id": "iot_get_alerts"
+    }
+  ],
+  "variables": [
+    {
+      "name": "base_url",
+      "value": "http://localhost:5000"
+    },
+    {
+      "name": "citizen_token",
+      "value": ""
+    },
+    {
+      "name": "collector_token",
+      "value": ""
+    },
+    {
+      "name": "admin_token",
+      "value": ""
+    },
+    {
+      "name": "citizen_id",
+      "value": ""
+    },
+    {
+      "name": "collector_id",
+      "value": ""
+    },
+    {
+      "name": "pickup_request_id",
+      "value": ""
+    },
+    {
+      "name": "payment_id",
+      "value": ""
+    }
+  ]
+}
